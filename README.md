@@ -31,13 +31,6 @@ ex) Programmers/행렬 테두리 회전하기/zerochae.java
 
 - remote는 포크된 자신의 레포지토리 주소 입니다.
 - branch는 master 하나만 유지합니다.
-
-```
-git add file
-git commit -m "Add: 문제이름"
-git push origin mas
-```
-
 - Pull requests 메뉴의 new pull request 버튼을 눌러 커밋 내용을 확인합니다.
 - PR을 보내고 본인이 Merge 합니다.
 </details>
