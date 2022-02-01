@@ -1,4 +1,4 @@
-# 알터디
+# Altudy
 
 ## MEMBER
 
@@ -6,7 +6,7 @@
   <img src="https://contrib.rocks/image?repo=zerochae/Altudy" />
 </a>
 
-## 업로드 양식
+## How to Upload
 
 ### BOJ
 
@@ -26,6 +26,6 @@ ex) Programmers/행렬 테두리 회전하기/zerochae.java
 
 *파일명은 자신의 이름으로 합니다.*
 
-## 약속
+## Promise
 
 - One Day One Solve
