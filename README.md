@@ -2,6 +2,8 @@
 
 ## MEMBER
 
+//권영채바보
+
 <a href="https://github.com/zerochae/Altudy/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=zerochae/Altudy" />
 </a>
