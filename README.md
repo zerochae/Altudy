@@ -2,6 +2,10 @@
 
 ## MEMBER
 
+<a href="https://github.com/zerochae/Altudy/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zerochae/Altudy" />
+</a>
+
 ## 업로드 양식
 
 ### BOJ
