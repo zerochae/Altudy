@@ -5,7 +5,7 @@ let k = 2;
 function solution(id_list, report, k) {
   var answer = [];
 
-  console.log(new member(id_list[0],0))
+  console.log(new member(id_list[1],0))
 
   
   return answer;
