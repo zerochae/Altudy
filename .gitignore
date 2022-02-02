@@ -6,12 +6,14 @@
 
 *.class
 *.txt
+*.iml
 
 /build
 
 .idea
 
 .setting
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,vs,go,java,node
