@@ -26,10 +26,6 @@ func main() {
 
 	sol := solution(fee, rec)
 
-	// for _, ele := range sol {
-	// 	fmt.Println(ele)
-	// }
-
 	for i := 0; i < len(sol); i++ {
 		fmt.Println(sol[i])
 	}
