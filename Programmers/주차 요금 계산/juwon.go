@@ -57,10 +57,8 @@ func solution(fees []int, records []string) []int {
 
 		if slice[2] == "IN" {
 			if val, ok := park[carNum]; ok {
-				// 있는 경우 Map에 parkTime 추가
 				val.parkTime = parkTime
 			} else {
-				// 맵에 없으면 주차 정보를 추가
 				park[carNum] = &Parking{carNum, 0, parkTime, 0}
 			}
 
