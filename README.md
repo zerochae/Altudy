@@ -3,7 +3,7 @@
 ## MEMBER
 
 <a href="https://github.com/zerochae/Altudy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=zerochae/Altudy&max=99" />
+  <img src="https://contrib.rocks/image?repo=zerochae/Altudy&max=5" />
 </a>
 
 ## How to Upload
