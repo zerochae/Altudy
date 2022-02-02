@@ -1,6 +1,5 @@
 import java.util.*;
 
-// https://programmers.co.kr/learn/courses/30/lessons/92341?language=java
 public class 주차_요금_계산 {
 	public static void main(String[] args) {
 
