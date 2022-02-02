@@ -1,2 +1,0 @@
-s elect "& from 
-ddfdf
