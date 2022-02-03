@@ -1,9 +1,3 @@
-# !/BOJ/*
-# /BOJ/*
-
-!/Prograemmers/*
-/Prograemmers/*
-
 *.class
 *.txt
 *.iml
@@ -13,8 +7,6 @@
 .idea
 
 .setting
-
-
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,vs,go,java,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,vs,go,java,node
