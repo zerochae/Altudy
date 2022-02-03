@@ -13,7 +13,7 @@ function solution(p) {
 
   let result = "(" + solution(v) + ")";
 
-  for (p of u.substring(1, u.length - 1).split("")) result += p === "(" ? ")" : "(";
+  for (let str of u.substring(1, u.length - 1).split("")) result += str === "(" ? ")" : "(";
   
   return result;
 }
@@ -48,3 +48,5 @@ function isBalance(str) {
 
   return { u, v };
 }
+
+console.log(solution(p));
