@@ -103,4 +103,6 @@ function isWhat(str) {
   }
 }
 
-solution(p);
+let result = solution(p);
+
+console.log(result);
