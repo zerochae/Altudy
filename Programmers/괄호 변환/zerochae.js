@@ -2,22 +2,6 @@
 // const p = ")(";
 const p = "()))((()";
 
-class Stack {
-  constructor() {
-    this.arr = [];
-    this.length = 0;
-  }
-  push(item) {
-    this.arr[this.length++] = item;
-  }
-  pop() {
-    return this.length > 0 ? this.arr[--this.length] : null;
-  }
-  isEmpty() {
-    return this.length === 0;
-  }
-}
-
 function solution(p) {
   return recur(p);
 }
@@ -40,7 +24,7 @@ function recur(str) {
 
 function isCorrect(str) {
   let items = str.split("");
-  let stack = new Stack();
+  let stack = [];
 
   items.map((item) => {
     switch (item) {
@@ -48,14 +32,14 @@ function isCorrect(str) {
         stack.push(item);
         break;
       case ")":
-        if (!stack.isEmpty()) stack.pop();
+        if (stack.length !== 0) stack.pop();
         else {
           return false;
         }
         break;
     }
   });
-  return stack.isEmpty();
+  return stack.length === 0;
 }
 
 function isBalance(str) {
