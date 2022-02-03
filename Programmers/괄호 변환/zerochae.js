@@ -22,10 +22,10 @@ class Stack {
 }
 
 function solution(p) {
-  return recur(p, []);
+  return recur(p);
 }
 
-function recur(str, resultArr) {
+function recur(str) {
   if (isCorrect(str)) return str;
 
   if (str.length === 0) return "";
@@ -34,11 +34,9 @@ function recur(str, resultArr) {
 
 
   if (isCorrect(u)) {
-    resultArr.push(u);
-    return u + recur(v, resultArr);
+    return u + recur(v);
   } else {
-    resultArr.push(v);
-    let result = "(" + recur(v, resultArr) + ")";
+    let result = "(" + recur(v) + ")";
 
     u = u.substring(1, u.length - 1);
 
