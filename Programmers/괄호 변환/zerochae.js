@@ -17,10 +17,7 @@ function isCorrect(str) {
   let stack = [];
 
   str.split("").map((item) => {
-    switch (item) {
-      case "(": stack.push(item); break;
-      case ")": if (stack.length !== 0) stack.pop(); else return false;
-    }
+    return item === "(" ? stack.push(item) : stack.length !== 0 ? stack.pop() : false;
   });
 
   return stack.length === 0;
