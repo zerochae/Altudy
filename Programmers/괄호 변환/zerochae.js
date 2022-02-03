@@ -41,7 +41,7 @@ function isBalance(str) {
 
   for (let item of items) {
     u += item; 
-    isWhat(item) ? open++ : close++;
+    item === "(" ? open++ : close++;
     if (open !== 0 && close !== 0 && open === close) break;
   }
 
@@ -51,11 +51,4 @@ function isBalance(str) {
     v += item;
   }
   return { u, v };
-}
-
-function isWhat(str) {
-  switch (str) {
-    case "(": return true;
-    case ")": return false;
-  }
 }
