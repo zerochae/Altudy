@@ -3,9 +3,7 @@ function solution(p) {
 
   if (p.length === 0) return "";
 
-  let { u, v } = isBalance(p); 
-
-  if (isCorrect(u)) return u + solution(v);
+  let { u, v } = isBalance(p); if (isCorrect(u)) return u + solution(v);
 
   let result = "(" + solution(v) + ")";
 
