@@ -16,9 +16,6 @@ class Stack {
   isEmpty() {
     return this.length === 0;
   }
-  top() {
-    return this.arr[this.length - 1];
-  }
 }
 
 function solution(p) {
@@ -32,25 +29,17 @@ function recur(str) {
 
   let { u, v } = isBalance(str);
 
+  if (isCorrect(u)) return u + recur(v);
 
-  if (isCorrect(u)) {
-    return u + recur(v);
-  } else {
-    let result = "(" + recur(v) + ")";
-
-    u = u.substring(1, u.length - 1);
-
-    for (str of u.split("")) {
-      result += str === "(" ? ")" : "(";
-    }
-
-    return result;
+  let result = "(" + recur(v) + ")";
+  for (str of u.substring(1, u.length - 1).split("")) {
+    result += str === "(" ? ")" : "(";
   }
+  return result;
 }
 
 function isCorrect(str) {
   let items = str.split("");
-
   let stack = new Stack();
 
   items.map((item) => {
@@ -88,7 +77,6 @@ function isBalance(str) {
   for (let item of items) {
     v += item;
   }
-
   return { u, v };
 }
 
