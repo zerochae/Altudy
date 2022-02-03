@@ -1,7 +1,3 @@
-// const p = "(()())()";
-// const p = ")(";
-const p = "()))((()";
-
 function solution(p) {
   if (isCorrect(p)) return p;
 
@@ -19,11 +15,10 @@ function solution(p) {
 }
 
 function isCorrect(str) {
-
-  let items = str.split("");
+  
   let stack = [];
 
-  items.map((item) => {
+  str.split("").map((item) => {
     switch (item) {
       case "(": stack.push(item); break;
       case ")": if (stack.length !== 0) stack.pop(); else return false;
@@ -35,11 +30,9 @@ function isCorrect(str) {
 
 function isBalance(str) {
 
-  let items = str.split("");
-  let open = 0; let close = 0;
-  let u = ""; let v = "";
+  let open = 0; let close = 0; let u = ""; let v = "";
 
-  for (let item of items) {
+  for (let item of str.split("")) {
     u += item; 
     item === "(" ? open++ : close++;
     if (open !== 0 && close !== 0 && open === close) break;
@@ -48,5 +41,3 @@ function isBalance(str) {
 
   return { u, v };
 }
-
-console.log(solution(p));
