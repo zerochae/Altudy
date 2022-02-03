@@ -3,20 +3,17 @@
 const p = "()))((()";
 
 function solution(p) {
-  return recur(p);
-}
+  if (isCorrect(p)) return p;
 
-function recur(str) {
-  if (isCorrect(str)) return str;
-  if (str.length === 0) return "";
+  if (p.length === 0) return "";
 
-  let { u, v } = isBalance(str); 
+  let { u, v } = isBalance(p); 
 
-  if (isCorrect(u)) return u + recur(v);
+  if (isCorrect(u)) return u + solution(v);
 
-  let result = "(" + recur(v) + ")";
+  let result = "(" + solution(v) + ")";
 
-  for (str of u.substring(1, u.length - 1).split("")) result += str === "(" ? ")" : "(";
+  for (p of u.substring(1, u.length - 1).split("")) result += p === "(" ? ")" : "(";
   
   return result;
 }
@@ -48,6 +45,6 @@ function isBalance(str) {
     if (open !== 0 && close !== 0 && open === close) break;
   }
   v = str.substring(u.length);
-  
+
   return { u, v };
 }
