@@ -45,10 +45,7 @@ function isBalance(str) {
     if (open !== 0 && close !== 0 && open === close) break;
   }
 
-  items.splice(0, u.length);
+  v = str.substring(u.length);
 
-  for (let item of items) {
-    v += item;
-  }
   return { u, v };
 }
