@@ -1,5 +1,5 @@
-const n = 1;
-const info = [1,0,0,0,0,0,0,0,0,0,0];
+const n = 10;
+const info = [0,0,0,0,0,0,0,0,3,4,3];
 
 let max = Number.MIN_VALUE;
 let result = [-1];
@@ -18,28 +18,22 @@ const dfs = (depth, score_apeach, score_lion, shot) => {
 
   if (depth >= 10) {
 
-    let apeach = 0;
-    let lion = 0;
-
-    score_lion[10] = shot;
+    let apeach = 0; let lion = 0; score_lion[10] = shot;
     
-    for (let i = 0; i <= 10; i++)
+    for (let i in score_lion)
     if (score_apeach[i] !== 0 || score_lion[i] !== 0)
     score_lion[i] > score_apeach[i] ? (lion += 10 - i) : (apeach += 10 - i);
     
-    if (lion > apeach && lion - apeach > max) {
+    if (lion - apeach > max) {
       result = [...score_lion];
       max = lion - apeach;
-    } else if (lion - apeach === max){
-      result = [...compare(result,score_lion)]
-    } 
-      
+    } else if (lion - apeach === max) result = [...compare(result,score_lion)]
     
     return;
   }
-    score_lion[depth] = score_apeach[depth] + 1;
+    score_lion[depth] = score_apeach[depth] + 1; 
     dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth] );
-    score_lion[depth] = 0;
+    score_lion[depth] = 0; 
     dfs(depth + 1, score_apeach, score_lion, shot);
 };
 
@@ -53,5 +47,3 @@ const compare = (arr1 , arr2) => {
     else if(arr1[index] < arr2[index]) return arr2.reverse();
   }
 }
-
-console.log(solution(n, info));
