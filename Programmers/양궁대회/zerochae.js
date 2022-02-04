@@ -1,44 +1,57 @@
-const n = 5;
-const info = [2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+const n = 1;
+const info = [1,0,0,0,0,0,0,0,0,0,0];
 
-let max = -1;
+let max = Number.MIN_VALUE;
 let result = [-1];
 
 const solution = (n, score_apeach) => {
-
   const score_lion = new Array(11).fill(0);
+
   dfs(0, score_apeach, score_lion, n);
 
   return result;
 };
 
-const dfs = (depth, score_apeach, score_lion, n) => {
+const dfs = (depth, score_apeach, score_lion, shot) => {
 
-  if (depth === n) {
-    getScore(score_apeach, score_lion);
+  if(shot < 0) return;
+
+  if (depth >= 10) {
+
+    let apeach = 0;
+    let lion = 0;
+
+    score_lion[10] = shot;
+    
+    for (let i = 0; i <= 10; i++)
+    if (score_apeach[i] !== 0 || score_lion[i] !== 0)
+    score_lion[i] > score_apeach[i] ? (lion += 10 - i) : (apeach += 10 - i);
+    
+    if (lion > apeach && lion - apeach > max) {
+      result = [...score_lion];
+      max = lion - apeach;
+    } else if (lion - apeach === max){
+      result = [...compare(result,score_lion)]
+    } 
+      
+    
     return;
   }
-  for (let i = 0; i <= 10 && score_lion[i] <= score_apeach[i]; i++) {
-    score_lion[i]++;
-    dfs(depth + 1, score_apeach, score_lion, n);
-    score_lion[i]--;
-  }
-
+    score_lion[depth] = score_apeach[depth] + 1;
+    dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth] );
+    score_lion[depth] = 0;
+    dfs(depth + 1, score_apeach, score_lion, shot);
 };
 
-const getScore = (score_apeach, score_lion) => {
+const compare = (arr1 , arr2) => {
 
-  let apeach = 0;
-  let lion = 0;
+  arr1 = arr1.reverse();
+  arr2 = arr2.reverse();
 
-  for (let i = 0; i <= 10; i++)
-    if (score_apeach[i] !== 0 || score_lion[i] !== 0)
-      score_lion[i] > score_apeach[i] ? (lion += 10 - i) : (apeach += 10 - i);
-
-  if (lion > apeach && lion - apeach >= max) {
-    result = [...score_lion];
-    max = lion - apeach;
+  for(let index in arr1){
+    if(arr1[index] > arr2[index]) return arr1.reverse();
+    else if(arr1[index] < arr2[index]) return arr2.reverse();
   }
-};
+}
 
 console.log(solution(n, info));
