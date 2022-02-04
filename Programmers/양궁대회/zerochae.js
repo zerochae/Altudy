@@ -1,6 +1,3 @@
-const n = 10;
-const info = [0,0,0,0,0,0,0,0,3,4,3];
-
 let max = Number.MIN_VALUE;
 let result = [-1];
 
@@ -31,16 +28,13 @@ const dfs = (depth, score_apeach, score_lion, shot) => {
     
     return;
   }
-    score_lion[depth] = score_apeach[depth] + 1; 
-    dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth]);
-    score_lion[depth] = 0; 
-    dfs(depth + 1, score_apeach, score_lion, shot);
+    score_lion[depth] = score_apeach[depth] + 1; dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth]);
+    score_lion[depth] = 0; dfs(depth + 1, score_apeach, score_lion, shot);
 };
 
 const compare = (arr1 , arr2) => {
 
-  arr1 = arr1.reverse();
-  arr2 = arr2.reverse();
+  arr1 = arr1.reverse(); arr2 = arr2.reverse();
 
   for(let index in arr1){
     if(arr1[index] > arr2[index]) return arr1.reverse();
