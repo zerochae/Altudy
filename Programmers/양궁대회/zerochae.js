@@ -16,7 +16,7 @@ const dfs = (depth, score_apeach, score_lion, shot) => {
 
   if(shot < 0) return;
 
-  if (depth >= 10) {
+  if (depth === 10) {
 
     let apeach = 0; let lion = 0; score_lion[10] = shot;
     
@@ -32,7 +32,7 @@ const dfs = (depth, score_apeach, score_lion, shot) => {
     return;
   }
     score_lion[depth] = score_apeach[depth] + 1; 
-    dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth] );
+    dfs(depth + 1, score_apeach, score_lion, shot - score_lion[depth]);
     score_lion[depth] = 0; 
     dfs(depth + 1, score_apeach, score_lion, shot);
 };
