@@ -7,8 +7,7 @@ const solution = (participant, completion) => {
   }
 
   for(let person of completion){
-    map.set(person,map.get(person)-1);
-    if(map.get(person) === 0) map.delete(person);
+    map.get(person) === 1 ? map.delete(person) : map.set(person,map.get(person)-1);
   }
 
   return map.keys().next().value; 
