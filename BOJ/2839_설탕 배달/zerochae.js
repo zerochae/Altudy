@@ -12,7 +12,6 @@ const input = (
 const n = Number(input.shift());
 const dp = new Array(n+1).fill(null);
 dp[3] = dp[5] = 1; // 3kg 일때 1개 , 5kg 일때 1개
-
 /* set param end*/
 
 /* solve */
