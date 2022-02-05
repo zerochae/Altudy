@@ -17,11 +17,7 @@ dp[3] = dp[5] = 1; // 3kg 일때 1개 , 5kg 일때 1개
 /* solve */
 const solution = (n) => {
   
-  if(dp[n] === null){
-    return dp[n] = n%5 === 0 ? solution(n-5) + 1: n%3 === 0 ? solution(n-3) + 1 : Math.min(solution(n-5),solution(n-3)) + 1; 
-  }
-
-  return dp[n];
+  return dp[n] = dp[n] === null ? n%5 === 0 ? solution(n-5) + 1: n%3 === 0 ? solution(n-3) + 1 : Math.min(solution(n-5),solution(n-3)) + 1 : dp[n]; 
 };
 /* solve end*/
 
