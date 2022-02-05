@@ -13,8 +13,9 @@ const input = (
 /* get input end */
 
 /* set param */
-const n = Number(input[0]); input.shift();
-const dp = new Array(n); const arr = [];
+const n = Number(input.shift());
+const dp = new Array(n); 
+const arr = new Array();
 
 input.map( (item) => {
   return arr.push(item.split(" ").map((el) => {
