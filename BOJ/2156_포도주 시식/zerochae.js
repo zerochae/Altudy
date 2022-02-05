@@ -16,12 +16,12 @@ const input = (
 
 /* set param */
 const n = Number(input.shift());
-const dp = new Array(n+1).fill(0);
-const arr = new Array();
 
-input.map(el => {
-  return arr.push(Number(el))
-})
+const dp = new Array(n+1).fill(0);
+
+const arr = new Array(n).fill(null).map((row,index) => {
+  return Number(input[index]);
+});
 
 dp[1] = arr[0]; // 1개인 경우
 dp[2] = dp[1] + arr[1]; // 2개인 경우
@@ -41,9 +41,8 @@ const solution = (n) => {
 
   3. 마지막꺼 안 먹기
   dp[i] = dp[i-1];
-
   */
- 
+
   if( n >= 3 ) { // 3개 이상 경우부터 DP 
     for(let i = 3; i<=n; i++){
       dp[i] = Math.max(dp[i-2] + arr[i-1],Math.max(dp[i-3] + arr[i - 2] + arr[i - 1],dp[i-1]));
