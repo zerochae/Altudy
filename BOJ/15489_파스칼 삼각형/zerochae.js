@@ -8,15 +8,14 @@ const input = (
 /* get input end*/
 
 /* set param */
-const [r, c, w] = input.shift().split(" ").map((el) => {
-  return Number(el);
+const [r, c, w] = input.shift().split(" ").map(el => {
+  return Number(el)
 });
 
-const dp = new Array(31).fill(null).map(()=>{
-  return new Array()
+const dp = new Array(31).fill(null).map((row,index)=>{
+  return new Array(index+1)
 });
 
-dp[1][1] = 1; // 한개인경우
 let result = 0;
 /* set param end*/
 
@@ -29,7 +28,7 @@ const solution = (r, c) => {
 };
 
 for (let i = 0; i < w; i++) {
-  for (let j = 0; j <= i; j++) {
+  for (let j = 0; j < i+1; j++) {
     result += solution(r + i, c + j);
   }
 }
