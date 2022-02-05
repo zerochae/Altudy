@@ -3,7 +3,8 @@ const fs = require("fs");
 const input = (
   process.platform === "linux"
     ? fs.readFileSync("/dev/stdin").toString()
-    : `5
+    : 
+`5
 7
 3 8
 8 1 0
@@ -14,18 +15,15 @@ const input = (
 
 /* set param */
 const n = Number(input.shift());
-const dp = new Array(n); 
-const arr = new Array();
 
-input.map( (item) => {
-  return arr.push(item.split(" ").map((el) => {
-    return Number(el);
-  }));
+const dp = new Array(n).fill(null).map((row,index)=>{
+  return new Array(index+1);
 })
 
-for(let i = 0; i < n; i ++){
-  dp[i] = new Array(i + 1);
-}
+const arr = new Array(n).fill(null).map((row,index) => {
+  return input[index].split(" ").map(Number)
+})
+
 dp[n-1] = [...arr[n-1]];
 /* set param end*/
 
