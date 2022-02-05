@@ -17,7 +17,7 @@ const input = (
 const n = Number(input.shift());
 
 const dp = new Array(n).fill(null).map((row,index)=>{
-  return new Array(index+1);
+  return new Array(index+1).fill(null);
 })
 
 const arr = new Array(n).fill(null).map((row,index) => {
@@ -30,9 +30,7 @@ dp[n-1] = [...arr[n-1]];
 /* solve */
 const solution = (height, index) => {
 
-  if (dp[height][index] === undefined) dp[height][index] = Math.max( solution(height + 1, index), solution(height + 1, index + 1) ) + arr[height][index];
-  
-  return dp[height][index];
+  return dp[height][index] = dp[height][index] === null ? dp[height][index] = Math.max( solution(height + 1, index), solution(height + 1, index + 1) ) + arr[height][index] : dp[height][index];
 };
 /* solve end*/
 
