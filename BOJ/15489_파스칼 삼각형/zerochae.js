@@ -13,7 +13,7 @@ const [r, c, w] = input.shift().split(" ").map(el => {
 });
 
 const dp = new Array(31).fill(null).map((row,index)=>{
-  return Array(index+1).fill(null)
+  return new Array(index+1).fill(null)
 });
 
 let result = 0;
