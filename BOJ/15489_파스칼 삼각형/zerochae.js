@@ -21,10 +21,8 @@ let result = 0;
 
 /* solve */
 const solution = (r, c) => {
-  if (r === c || c === 1) dp[r][c] = 1;
-  else if (r > 0 && c > 0 && dp[r][c] === undefined) dp[r][c] = solution(r - 1, c - 1) + solution(r - 1, c);
-  
-  return dp[r][c];
+
+  return dp[r][c] = (r === c || c === 1) ? 1 : (dp[r][c] === undefined) ? solution(r - 1, c - 1) + solution(r - 1, c) : dp[r][c];
 };
 
 for (let i = 0; i < w; i++) {
