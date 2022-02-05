@@ -13,7 +13,7 @@ const [r, c, w] = input.shift().split(" ").map(el => {
 });
 
 const dp = new Array(31).fill(null).map((row,index)=>{
-  return new Array(index+1)
+  return Array(index+1).fill(null)
 });
 
 let result = 0;
@@ -22,7 +22,7 @@ let result = 0;
 /* solve */
 const solution = (r, c) => {
 
-  return dp[r][c] = (r === c || c === 1) ? 1 : (dp[r][c] === undefined) ? solution(r - 1, c - 1) + solution(r - 1, c) : dp[r][c];
+  return dp[r][c] = (r === c || c === 1) ? 1 : (dp[r][c] === null) ? solution(r - 1, c - 1) + solution(r - 1, c) : dp[r][c];
 };
 
 for (let i = 0; i < w; i++) {
