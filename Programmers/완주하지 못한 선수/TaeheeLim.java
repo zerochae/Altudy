@@ -3,7 +3,7 @@ package com.example.codingtest.level1;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class 완주하지못한선수 {
+public class TaeheeLim {
     public static void main(String[] args) {
         String[] participant = {"mislav", "stanko", "mislav", "ana"};
         String[] completion = {"stanko", "ana", "mislav"};
