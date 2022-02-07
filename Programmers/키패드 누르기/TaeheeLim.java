@@ -12,14 +12,7 @@ public class 키패드누르기 {
 
         System.out.println(solution(numbers2, hand2));
     }
-    //    1   2   3
-    //    4   5   6
-    //    7   8   9
-    //    *   0   #
-    //한칸의 거리는 1
-    //같은 거리일 경우 왼손잡이인지 오른손잡이인지 판단
 
-    // 1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5
     public static String solution(int[] numbers, String hand){
         Person person = new Person("10", "12", hand);
         StringBuilder builder = new StringBuilder();
@@ -28,112 +21,102 @@ public class 키패드누르기 {
             if(number == 0) number = 11;
 
             switch (number){
-                //왼손
-                case 1:
+                case 1: case 4: case 7:
                     builder.append("L");
-                    person.setLeftPosition("1");
+                    person.leftPosition = number + "";
                     break;
-                case 4:
-                    builder.append("L");
-                    person.setLeftPosition("4");
-                    break;
-                case 7:
-                    builder.append("L");
-                    person.setLeftPosition("7");
-                    break;
-
-                //오른손
-                case 3:
+                case 3: case 6: case 9:
                     builder.append("R");
-                    person.setRightPosition("3");
+                    person.rightPosition = number + "";
                     break;
-                case 6:
-                    builder.append("R");
-                    person.setRightPosition("6");
-                    break;
-                case 9:
-                    builder.append("R");
-                    person.setRightPosition("9");
-                    break;
-
-                //가운데
-                case 2:
-                    calculateDistance(builder, person, 2);
-                    break;
-                case 5:
-                    calculateDistance(builder, person, 5);
-                    break;
-                case 8:
-                    calculateDistance(builder, person, 8);
-                    break;
-                case 11:
-                    calculateDistance(builder, person, 11);
+                case 2: case 5: case 8: case 11:
+                    calculateDistance(builder, person, number);
                     break;
             }
-//            LRLLLRLLRRL 답안
-//            LRLLLRLLLRL 내꺼
         }
-
         return builder.toString();
     }
-    // 1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5
 
-    //1, 2, 3, 4, 5, 6, 7, 8, 9, 0
     public static void calculateDistance(StringBuilder builder, Person person, int num){
-        String leftPosition = person.getLeftPosition();
-        String rightPosition = person.getRightPosition();
-        int substituteLeft = Math.abs(num - Integer.parseInt(leftPosition));
-        int substituteRight = Math.abs(num - Integer.parseInt(rightPosition));
-
+        int substituteLeft = Math.abs(num - Integer.parseInt(person.leftPosition));
+        int substituteRight = Math.abs(num - Integer.parseInt(person.rightPosition));
         int leftDistance = (substituteLeft % 3) + (substituteLeft / 3);
         int rightDistance = (substituteRight % 3) + (substituteRight / 3);
 
         if(leftDistance > rightDistance){
             builder.append("R");
-            person.setRightPosition(num + "");
-        } else if(leftDistance < rightDistance){
+            person.rightPosition = num + "";
+        } else if (leftDistance < rightDistance) {
             builder.append("L");
-            person.setLeftPosition(num + "");
+            person.leftPosition = num + "";
+        } else if(person.hand.equals("right")) {
+            builder.append("R");
+            person.rightPosition = num + "";
         } else {
-            if(person.getHand().equals("right")){
-                builder.append("R");
-                person.setRightPosition(num + "");
-            } else {
-                builder.append("L");
-                person.setLeftPosition(num + "");
-            }
+            builder.append("L");
+            person.leftPosition = num + "";
+        }
+    }
+
+    static class Person{
+        String leftPosition;
+        String rightPosition;
+        String hand;
+
+        Person(String left, String right, String hand){
+            this.leftPosition = left;
+            this.rightPosition = right;
+            this.hand = hand;
         }
     }
 }
 
-class Person{
-    String leftPosition;
-    String rightPosition;
-    String hand;
 
-    Person(String left, String right, String hand){
-        this.leftPosition = left;
-        this.rightPosition = right;
-        this.hand = hand;
-    }
 
-    public String getLeftPosition() {
-        return leftPosition;
-    }
 
-    public void setLeftPosition(String leftPosition) {
-        this.leftPosition = leftPosition;
-    }
-
-    public String getRightPosition() {
-        return rightPosition;
-    }
-
-    public void setRightPosition(String rightPosition) {
-        this.rightPosition = rightPosition;
-    }
-
-    public String getHand() {
-        return hand;
-    }
-}
+//    public static String solution(int[] numbers, String hand) {
+//        StringBuilder answer = new StringBuilder();
+//        int[] right = {1,1};
+//        int[] left = {3,1};
+//        Map<Integer,int[]> pattern = new HashMap();
+//        pattern.put(1,new int[]{1,4});
+//        pattern.put(2,new int[]{2,4});
+//        pattern.put(3,new int[]{3,4});
+//        pattern.put(4,new int[]{1,3});
+//        pattern.put(5,new int[]{2,3});
+//        pattern.put(6,new int[]{3,3});
+//        pattern.put(7,new int[]{1,2});
+//        pattern.put(8,new int[]{2,2});
+//        pattern.put(9,new int[]{3,2});
+//        pattern.put(0,new int[]{2,1});
+//
+//        for(int number : numbers){
+//            if(number == 1 || number == 4 || number == 7){
+//                left = pattern.get(number);
+//                answer.append("L");
+//            }else if(number == 3 || number == 6 || number == 9){
+//                right = pattern.get(number);
+//                answer.append("R");
+//            }else{
+//                int leftWidth = Math.abs(left[0]-pattern.get(number)[0]) + Math.abs(left[1]-pattern.get(number)[1]);
+//                int rightWidth = Math.abs(right[0]-pattern.get(number)[0]) + Math.abs(right[1]-pattern.get(number)[1]);
+//                if(leftWidth > rightWidth){
+//                    right = pattern.get(number);
+//                    answer.append("R");
+//                }else if(leftWidth < rightWidth){
+//                    left = pattern.get(number);
+//                    answer.append("L");
+//                }else{
+//                    if(hand.equals("right")){
+//                        right = pattern.get(number);
+//                        answer.append("R");
+//                    }else {
+//                        left = pattern.get(number);
+//                        answer.append("L");
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println(answer.toString());
+//        return answer.toString();
+//    }
