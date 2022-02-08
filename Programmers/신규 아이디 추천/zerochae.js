@@ -9,9 +9,14 @@ let result = "";
 /* solve */
 const solution = (n) => {
 
-  n = n.toLowerCase().replace(/([^a-z0-9\.\_\-])/gi,"").replace(/\.+(?=.)/g,"\.").replace(/^\./,"").replace(/\.$/,"").replace(/^$/,"a").match(/.{0,15}/)[0].replace(/\.$/g,"")
+  n = n.toLowerCase(). // 1단계
+  replace(/([^a-z0-9\.\_\-])/gi,""). // 2단계
+  replace(/\.+(?=.)/g,"\."). // 3단계
+  replace(/^\./,"").replace(/\.$/,""). // 4단계
+  replace(/^$/,"a"). //5 단계
+  match(/.{0,15}/)[0].replace(/\.$/g,"") // 6단계 match(/.{0,15}/)[0] === (slice(0,15)
 
-  return n.length <= 2 ? solution(n+n.substring(n.length-1)) : n;
+  return n.length <= 2 ? solution(n+n.substring(n.length-1)) : n; // 7단계
 };
 /* solve end*/
 
