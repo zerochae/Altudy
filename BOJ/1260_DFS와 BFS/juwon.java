@@ -26,7 +26,6 @@ public class DFS_BFS_1260 {
 			// 이중배열을 0으로 초기화
 			Arrays.fill(map[j], 0);
 		}
-
 		// 방문 정보를 false로 초기화
 		Arrays.fill(visit, false);
 
