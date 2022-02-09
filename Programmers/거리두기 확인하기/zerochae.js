@@ -1,5 +1,5 @@
 /* get input */
-let n = [
+const n = [
   ["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"],
   ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"],
   ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"],
@@ -21,8 +21,8 @@ const solution = (rooms) => {
 const search = (room, arr, ri, ci, col) => {
 
   const location = [ 
-    (room[ri - 1] || "").charAt(ci), // up undefined?
-    (room[ri + 1] || "").charAt(ci), // down undefined?
+    (room[ri - 1] !== undefined ? room[ri - 1].charAt(ci) : null), // up undefined ?
+    (room[ri + 1] !== undefined ? room[ri + 1].charAt(ci) : null), // down undefined ?
     arr[ci - 1], // left
     arr[ci + 1] ]; // right 
 
