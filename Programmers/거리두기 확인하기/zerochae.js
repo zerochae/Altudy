@@ -20,14 +20,13 @@ const solution = (rooms) => {
 
 const search = (room, arr, ri, ci, col) => {
 
-  const location = [ 
+  const count = [ 
+
     (room[ri - 1] !== undefined ? room[ri - 1].charAt(ci) : null), // up undefined ?
     (room[ri + 1] !== undefined ? room[ri + 1].charAt(ci) : null), // down undefined ?
     arr[ci - 1], // left
-    arr[ci + 1] ]; // right 
-
-  const count = new Array(4).fill(null).map( (row,index) => {
-    return location[index] }).filter((el) => el === "P").length; // P count > 0 , O count < 1 
+    arr[ci + 1] // right 
+  ].filter( (el) => el === "P").length; // P count > 0 , O count < 1 
 
   return (col === "P" && count > 0) || (col === "O" && count > 1);
 };
