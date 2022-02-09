@@ -23,6 +23,7 @@ public class DFS_BFS_1260 {
 		visit = new boolean[n + 1];
 
 		for(int j = 0; j < n + 1; j++){
+            
 			// 이중배열을 0으로 초기화
 			Arrays.fill(map[j], 0);
 		}
