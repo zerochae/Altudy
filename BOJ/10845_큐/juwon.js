@@ -42,8 +42,10 @@ let temp = ''
 
 for(let i = 1; i < input.length; i++){
     cmd = input[i].split(' ')
-    if( input[i].includes('push') ){
-        temp = parseInt(cmd[1])
+    if( cmd[0] === 'push' ){
+        // temp = parseInt(cmd[1])
+        // temp = +cmd[1]
+        temp = Number(cmd[1])
     }
     
     switch (cmd[0]) {
