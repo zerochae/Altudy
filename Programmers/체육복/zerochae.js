@@ -21,30 +21,29 @@ let result = 0;
 /* set param end*/
 
 /* solve */
-const solution = (n, lost, reserve ) => {
-
+const solution = (n, lost, reserve) => {
   const myClass = new classRoom(n);
 
   lost.map((index) => {
-    const student = {...myClass.studentList[index - 1]};
+    const student = { ...myClass.studentList[index - 1] };
     student.isHave = false;
     student.isLost = true;
-    return myClass.studentList[index - 1] = {...student}
+    return (myClass.studentList[index - 1] = { ...student });
   });
 
   reserve.map((index) => {
-    const student = {...myClass.studentList[index - 1]};
+    const student = { ...myClass.studentList[index - 1] };
     student.isReserve = true;
-    return myClass.studentList[index - 1] = {...student}
+    return (myClass.studentList[index - 1] = { ...student });
   });
 
-  myClass.studentList.map(student =>{
-    if(student.isLost && student.isReserve){
+  myClass.studentList.map((student) => {
+    if (student.isLost && student.isReserve) {
       student.isReserve = false;
       student.isHave = true;
       student.isLost = false;
     }
-  })
+  });
 
   myClass.studentList.map((student, index) => {
     if (student.isLost) {
@@ -58,11 +57,9 @@ const solution = (n, lost, reserve ) => {
         nextStudent.isReserve = false;
       }
     }
-  });
-
-  myClass.studentList.map((student) => {
     student.isHave ? result++ : null;
   });
+
   return result;
 };
 /* solve end*/
