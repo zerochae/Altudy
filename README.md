@@ -6,9 +6,10 @@
   <img src="https://contrib.rocks/image?repo=zerochae/Altudy&max=8" />
 </a>
 
-## Promise
-
-- One Day One Solve
+## Languages
+|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=flat-square&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"/>
+|---|---|---|---|
+|Juwon-Yun <br/> Ahndaegeun <br/> TaeheeLim <br/> show5116|zerochae|Juwon-Yun|leejunseok95|
 
 ## How to Upload
 
@@ -44,6 +45,13 @@ const upLoad = () => {
   return git.commit(solveFile);
 }
 ```
+
+## Promise
+
+- One Day One Solve
+
+## Role
+
 <details>
 <summary> Pull Request </summary>
 
@@ -62,8 +70,3 @@ const upLoad = () => {
 - 기존 파일 삭제 시 "Remove: 문제이름"
   
 </details>
-
-## Languages
-|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=flat-square&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"/>
-|---|---|---|---|
-|Juwon-Yun <br/> Ahndaegeun <br/> TaeheeLim <br/> show5116|zerochae|Juwon-Yun|leejunseok95|
