@@ -7,7 +7,7 @@
 </a>
 
 ## Languages
-|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=flat-square&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"/>
+|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=for-the-badge&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=for-the-badge&logo=Oracle&logoColor=FFFFFF"/>
 |---|---|---|---|
 |Juwon-Yun <br/> Ahndaegeun <br/> TaeheeLim <br/> show5116|zerochae|Juwon-Yun|leejunseok95|
 
@@ -38,12 +38,12 @@ const solve = (file) => {
   return solveFile;
 }
 
-const upLoad = () => {
+const upLoad = (testFolder) => {
   if ( !testFolder ) createNewFoler( BOJ || Programmers );
   const myFile = createNewFile(myName,language);
   const solveFile = solve(myFile);
   
-  return git.commit(solveFile);
+  return git.commit(solveFile).push().pullRequest();
 }
 ```
 
