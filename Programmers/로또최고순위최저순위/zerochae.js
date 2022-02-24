@@ -16,10 +16,9 @@ const solution = (lottos, win_nums) => {
   const zero = lottos.filter((el) => el === 0).length;
   const match = lottos.filter((el) => win_nums.includes(el)).length;
 
-  return [
-    match === 6 ? 1 : zero === 6 ? 1 : match === 0 && zero === 0 ? 6 : 7 - (zero + match),
-    match === 6 ? 1 : zero === 6 ? 6 : match === 0 && zero === 0 ? 6 : 7 - match >= 7 ? 6 : 7-match,
-  ];
+  return match === 0 && zero === 0
+    ? [6, 6]
+    : [7 - (zero + match), match === 0 ? 6 : 7 - match];
 };
 /* solve end*/
 
