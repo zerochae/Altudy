@@ -8,7 +8,7 @@
 
 ## Languages
 |<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=for-the-badge&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=for-the-badge&logo=Oracle&logoColor=FFFFFF"/>
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 |Juwon-Yun <br/> Ahndaegeun <br/> TaeheeLim <br/> show5116|zerochae|Juwon-Yun|leejunseok95|
 
 ## How to Upload
