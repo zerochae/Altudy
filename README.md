@@ -45,6 +45,8 @@ const upLoad = (testFolder) => {
   
   return git.commit(solveFile).push().pullRequest();
 }
+
+upLoad(newTest);
 ```
 
 ## Promise
