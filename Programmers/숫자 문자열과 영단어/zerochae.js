@@ -8,9 +8,9 @@ const patterns = ['zero','one','two','three','four','five','six','seven','eight'
 
 /* solve */
 const solution = (s) => {
-  return Number(patterns.map((pattern,index) =>{
-    return s = s.replace(new RegExp(pattern,"g"),index)
-  }).pop())
+  return Number(patterns.map((pattern,index) =>
+    s = s.replace(new RegExp(pattern,"g"),index)
+  ).pop())
 };
 /* solve end*/
 
