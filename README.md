@@ -27,7 +27,7 @@ const createNewFoler = ( BOJ || Programmers ) => {
 } 
 
 const createNewFile = (myName,language) => {
-  const newFile = `${myName.language}` ;
+  const newFile = `${myName.language}`;
   
   return newFile;
 }
@@ -35,13 +35,14 @@ const createNewFile = (myName,language) => {
 const solve = (file) => {
   const solveFile = file + solution;
   
-  return solveFile
+  return solveFile;
 }
 
 const upLoad = () => {
   if ( !testFolder ) createNewFoler( BOJ || Programmers );
-  const myFile = createNewFile();
+  const myFile = createNewFile(myName,language);
   const solveFile = solve(myFile);
+  
   return git.commit(solveFile);
 }
 ```
