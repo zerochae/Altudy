@@ -6,26 +6,44 @@
   <img src="https://contrib.rocks/image?repo=zerochae/Altudy&max=8" />
 </a>
 
+## Promise
+
+- One Day One Solve
+
 ## How to Upload
 
-### BOJ
+```
+Follow the logic after fork & clone
+```
 
-- BOJ 폴더안에 (문제번호_문제이름)으로 된 폴더가 없을 경우 새로 생성합니다. 
-- 있을 경우 폴더 안에 자신의 이름으로된 파일을 생성합니다.
-- Solve 후 업로드 합니다.
+```js
+const createNewFoler = ( BOJ || Programmers ) => {
+  const newFolder;
+  if(BOJ) newFolder = BOJ/testNo_testName;
+  else if(Programmers) newFolder = Programmers/testName;
+  
+  return newFolder;
+} 
 
-ex) BOJ/15489_파스칼 삼각형/zerochae.java
+const createNewFile = (myName,language) => {
+  const newFile = `${myName.language}` ;
+  
+  return newFile;
+}
 
-### Programmers
+const solve = (file) => {
+  const solveFile = file + solution;
+  
+  return solveFile
+}
 
-- Programmers 폴더 안에 문제이름으로 된 폴더가 없을 경우 새로 생성합니다.
-- 있을 경우 폴더 안에 자신의 이름으로된 파일을 생성합니다.
-- Solve 후 업로드 합니다.
-
-ex) Programmers/행렬 테두리 회전하기/zerochae.java
-
-*파일명은 자신의 이름으로 합니다.*
-
+const upLoad = () => {
+  if ( !testFolder ) createNewFoler( BOJ || Programmers );
+  const myFile = createNewFile();
+  const solveFile = solve(myFile);
+  return git.commit(solveFile);
+}
+```
 <details>
 <summary> Pull Request </summary>
 
@@ -45,6 +63,7 @@ ex) Programmers/행렬 테두리 회전하기/zerochae.java
   
 </details>
 
-## Promise
-
-- One Day One Solve
+## Languages
+|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/JavaScript-ffb13b?style=flat-square&logo=Javascript&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=Go&logoColor=FFFFFF"/>|<img src="https://img.shields.io/badge/SQL-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"/>
+|---|---|---|---|
+|Juwon-Yun <br/> Ahndaegeun <br/> TaeheeLim <br/> show5116|zerochae|Juwon-Yun|leejunseok95|
