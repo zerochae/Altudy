@@ -18,7 +18,7 @@ Follow the logic after fork & clone
 ```
 
 ```js
-const createNewFoler = ( BOJ || Programmers ) => {
+const createNewFoler = ( BOJ or Programmers ) => {
   const newFolder;
   if(BOJ) newFolder = BOJ/testNo_testName;
   else if(Programmers) newFolder = Programmers/testName;
@@ -39,7 +39,7 @@ const solve = (file) => {
 }
 
 const upLoad = (testFolder) => {
-  if ( !testFolder ) createNewFoler( BOJ || Programmers );
+  if ( !testFolder ) createNewFoler( BOJ or Programmers );
   const myFile = createNewFile(myName,language);
   const solveFile = solve(myFile);
   
