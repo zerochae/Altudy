@@ -4,18 +4,20 @@ const answers = [5, 4, 4, 2, 1];
 /* get input end */
 
 /* set param */
-const pattern_A = [1, 2, 3, 4, 5];
-const pattern_B = [2, 1, 2, 3, 2, 4, 2, 5];
-const pattern_C = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+const patterns = [
+  [1, 2, 3, 4, 5],
+  [2, 1, 2, 3, 2, 4, 2, 5],
+  [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
+];
 const result = [0, 0, 0];
 /* set param end */
 
 /* solve */
 const solution = (answers) => {
-  answers.map((answer, index) => {
-    if (answer === pattern_A[index % pattern_A.length]) result[0]++;
-    if (answer === pattern_B[index % pattern_B.length]) result[1]++;
-    if (answer === pattern_C[index % pattern_C.length]) result[2]++;
+  answers.map((answer, ans_Idx) => {
+    patterns.map((pattern, pat_Idx) => {
+      answer === pattern[ans_Idx % pattern.length] ? result[pat_Idx]++ : null;
+    });
   });
 
   const MAX = Math.max(...result);
