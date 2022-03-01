@@ -19,7 +19,7 @@ Follow the logic after fork & clone
 
 ```js
 const createNewFoler = ( BOJ or Programmers ) => {
-  const newFolder;
+  let newFolder;
   if(BOJ) newFolder = BOJ/testNo_testName;
   else if(Programmers) newFolder = Programmers/testName;
   
