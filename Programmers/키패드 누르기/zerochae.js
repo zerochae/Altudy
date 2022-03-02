@@ -18,6 +18,7 @@ const lastPad = {
 
 /* solve */
 const solution = (numbers, hand) => {
+
   return numbers.reduce((acc, num) => {
     const target = getPosition(num);
 
@@ -57,16 +58,13 @@ const solution = (numbers, hand) => {
 };
 
 const getPosition = (num) => {
-  let x = -1;
-  let y = -1;
-  keyPad.forEach((row, row_index) => {
+  
+  return keyPad.reduce((position, row, index) => {
     if (row.includes(num)) {
-      x = row_index;
-      y = row.indexOf(num);
+      position = [index, row.indexOf(num)];
     }
-  });
-
-  return [x, y];
+    return position;
+  }, []);
 };
 
 const getDistance = (a, b) => {
