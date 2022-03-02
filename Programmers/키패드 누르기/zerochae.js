@@ -31,42 +31,28 @@ const solution = (numbers, hand) => {
       return acc + "R";
     }
 
-    const left = getPosition(lastPad.left);
-    const distance_left = Math.ceil(
-      Math.sqrt(
-        Math.abs((target[0] - left[0]) ** 2) +
-          Math.abs((target[1] - left[1]) ** 2)
-      )
-    );
+    const left = getDistance(target, getPosition(lastPad.left));
+    const right = getDistance(target, getPosition(lastPad.right));
 
-    const right = getPosition(lastPad.right);
-    const distance_right = Math.ceil(
-      Math.sqrt(
-        Math.abs((target[0] - right[0]) ** 2) +
-          Math.abs((target[1] - right[1]) ** 2)
-      )
-    );
-
-    if (distance_left === distance_right && hand === "left") {
+    if (left === right && hand === "left") {
       lastPad.left = num;
       return acc + "L";
     }
 
-    if (distance_left === distance_right && hand === "right") {
+    if (left === right && hand === "right") {
       lastPad.right = num;
       return acc + "R";
     }
 
-    if (distance_left < distance_right) {
+    if (left < right) {
       lastPad.left = num;
       return acc + "L";
     }
 
-    if (distance_left > distance_right) {
+    if (left > right) {
       lastPad.right = num;
       return acc + "R";
     }
-
   }, "");
 };
 
@@ -81,6 +67,13 @@ const getPosition = (num) => {
   });
 
   return [x, y];
+};
+
+const getDistance = (a, b) => {
+  
+  return Math.ceil(
+    Math.sqrt(Math.abs((a[0] - b[0]) ** 2) + Math.abs((a[1] - b[1]) ** 2))
+  );
 };
 /* solve end */
 
