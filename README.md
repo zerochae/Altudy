@@ -53,7 +53,7 @@ upLoad(newTest);
 
 - One Day One Solve
 
-## Role
+## Rule
 
 <details>
 <summary> Pull Request </summary>
