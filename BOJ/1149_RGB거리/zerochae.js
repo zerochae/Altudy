@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 const stdin = (
   process.platform === "linux"
     ? fs.readFileSync("/dev/stdin").toString()
@@ -16,7 +16,7 @@ const input = stdin.map((arr) => {
 });
 const dp = new Array(n).fill(null).map((arr, row_index) =>
   new Array(3).fill(null).map((el, col_index) => {
-    if (row_index === 0) return (el = input[row_index][col_index]);
+    return (el = row_index === 0 ? input[row_index][col_index] : null);
   })
 );
 
@@ -31,7 +31,7 @@ const solution = (n) => {
 };
 
 const solve = (n, index) => {
-  if (dp[n][index] === undefined) {
+  if (dp[n][index] === null) {
     dp[n][index] =
       index === 0
         ? input[n][index] + Math.min(solve(n - 1, 1), solve(n - 1, 2))
