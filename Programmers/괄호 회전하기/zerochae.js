@@ -12,21 +12,19 @@ const solution = (s) => {
     const stack = [];
 
     str.some((el) => {
-      el === "[" || el === "(" || el === "{"
-        ? stack.push(el)
-        : (stack.length !== 0 &&
-            stack[stack.length - 1] === "{" &&
-            el === "}") ||
-          (stack[stack.length - 1] === "[" && el === "]") ||
-          (stack[stack.length - 1] === "(" && el === ")")
-        ? stack.pop()
-        : stack.push(false);
-    });
 
+      const open = el === "[" || el === "(" || el === "{";
+      const close =
+        (stack.length !== 0 && stack[stack.length - 1] === "{" && el === "}") ||
+        (stack[stack.length - 1] === "[" && el === "]") ||
+        (stack[stack.length - 1] === "(" && el === ")");
+
+      open ? stack.push(el) : close ? stack.pop() : stack.push(false);
+    });
     stack.length === 0 && !stack.includes(false) ? count++ : null;
   };
 
-  while (length-- > 0) {
+  while (length --> 0) {
     rotate(str);
     str = [...str.pop(), ...str];
   }
