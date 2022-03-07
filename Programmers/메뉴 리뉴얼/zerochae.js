@@ -13,13 +13,10 @@ const solution = (orders, course) => {
   });
 
   course.map((course) => {
-    let menus = [];
+    const menus = [];
 
     orders.map((order) => {
       menus.push(...getCombinations(order.split(""), course));
-    });
-
-    orders.map((order) => {
       menus.map((menu) => {
         if (
           order
@@ -49,7 +46,7 @@ const solution = (orders, course) => {
       }
     }
 
-    return [...new Set(result)].sort();
+    return result.sort();
   }, []);
 };
 
@@ -66,7 +63,7 @@ const getCombinations = (arr, sel) => {
     );
   });
 
-  return [...new Set(results)];
+  return results;
 };
 /* solve end */
 
