@@ -10,7 +10,7 @@ const climbStairs = (n) => {
   for (const i in dp) {
     dp[i] = dp[i] === null ? dp[i - 1] + dp[i - 2] : dp[i];
   }
-  return dp;
+  return dp[n];
 };
 
 console.log(climbStairs(n));
