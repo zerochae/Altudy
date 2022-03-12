@@ -24,26 +24,26 @@ const solution = (info, query) => {
     const score = parseInt(q.pop());
 
     result.push(
-      Object.keys(map)
+      Array.from(map.keys())
         .filter((key) => q.every((val) => key.includes(val)))
-        .reduce((acc, key) => acc + search(map[key], score), 0)
+        .reduce((acc, key) => acc + search(map.get(key), score), 0)
     );
     return result;
   }, []);
 };
 
 const setInfo = (info) => {
-  const map = {};
+  const map = new Map();
 
   info.map((row) => {
     const i = row.split(" ");
     const score = Number(i.pop());
     const key = i.join(" ");
-    !map[key] ? (map[key] = [score]) : map[key].push(score);
+    !map.has(key) ? map.set(key, [score]) : map.get(key).push(score);
   });
 
-  for (const key of Object.keys(map)) {
-    map[key] = map[key].sort((a, b) => a - b);
+  for (const key of map.keys()) {
+    map.get(key).sort((a, b) => a - b);
   }
 
   return map;
