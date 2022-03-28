@@ -12,12 +12,10 @@ const input = {
  */
 
 const getSum = (a, b) => {
-  const B = (a & b) << 1;
   const A = a ^ b;
+  const B = (a & b) << 1;
 
-  if (B === 0) return A;
-  else if (A === 0) return B;
-  return getSum(A, B);
+  return A === 0 ? B : B === 0 ? A : getSum(A, B);
 };
 
 const output = getSum(input.a, input.b);
