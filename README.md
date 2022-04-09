@@ -50,7 +50,6 @@ upLoad(newTest);
 ```
 
 ## Promise
-a
 - One Day One Solve
 
 ## Rule
