@@ -1,9 +1,9 @@
 /* get input */
 const fs = require("fs");
-// const filePath = fs.readFileSync("/dev/stdin");
-const filePath = `7 1 2 3 4 5 6 7
-8 1 2 3 5 8 13 21 34
-0`;
+const filePath = fs.readFileSync("/dev/stdin");
+// const filePath = `7 1 2 3 4 5 6 7
+// 8 1 2 3 5 8 13 21 34
+// 0`;
 
 const input = filePath.toString().trim().split("\n");
 /* get input end */
@@ -21,9 +21,8 @@ const solution = (input) => {
     input[i] = input[i].split(" ");
     const n = +input[i][0];
     let arr = [];
-    let ans = Array.from({ length: 6 }, () => 0);
-    let isused = Array.from({ length: 6 }, () => 0);
-    let tmp = 0;
+    let ans = Array.from({ length: 15 }, () => 0);
+    let isused = Array.from({ length: 15 }, () => 0);
 
     for (let j = 1; j <= n; j++) {
       //   console.log(input[i][j]);
@@ -33,16 +32,29 @@ const solution = (input) => {
     function func(k) {
       //   console.log(n, arr);
       //   console.log(k, n);
-      if (k === n) {
-        // console.log(ans);
-        answer += ans.slice().join(" ") + "\n";
-        // console.log(arr);
+      if (k === 6) {
+        let flag = true;
+        let tmp = -1;
+        for (let i = 0; i < 6; i++) {
+          //   console.log(arr[ans[i]]);
+          if (tmp > arr[ans[i]]) {
+            flag = false;
+          }
+          tmp = arr[ans[i]];
+        }
+        if (flag === true) {
+          //   console.log(ans);
+          for (let i = 0; i < 6; i++) {
+            // console.log(arr[ans[i]]);
+            answer += arr[ans[i]] + " ";
+          }
+          answer += "\n";
+        }
         return;
       } else {
-        for (let i = 0; i < 6; i++) {
-          if (isused[i] === 0 && tmp < arr[i]) {
-            ans[k] = arr[i];
-            tmp = ans[k];
+        for (let i = 0; i < n; i++) {
+          if (isused[i] === 0) {
+            ans[k] = i;
             isused[i] = 1;
             func(k + 1);
             isused[i] = 0;
@@ -52,9 +64,9 @@ const solution = (input) => {
     }
     // console.log(ans);
     func(0);
-
-    console.log(answer);
+    answer += "\n";
   }
+  console.log(answer);
 
   //   console.log(input);
 };
