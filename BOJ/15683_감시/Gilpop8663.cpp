@@ -106,7 +106,24 @@ int main(void)
             }
             else if (board1[x][y] == 4)
             {
+                upd(x, y, dir);
+                upd(x, y, dir + 1);
+                upd(x, y, dir + 2);
+            }
+            else // board1[x][y] == 5
+            {
+                upd(x, y, dir);
+                upd(x, y, dir + 1);
+                upd(x, y, dir + 2);
+                upd(x, y, dir + 3);
             }
         }
+
+        int val = 0;
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < m; j++)
+                val += (board2[i][j] == 0);
+        mn = min(mn, val);
     }
+    cout << mn;
 }
