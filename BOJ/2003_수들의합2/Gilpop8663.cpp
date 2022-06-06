@@ -30,8 +30,6 @@ int main(void)
         for (int j = i + 1; j < n; j++)
         {
             sum += arr[j];
-
-            // cout << sum << " ";
             if (sum > m)
                 break;
             if (sum == m)
