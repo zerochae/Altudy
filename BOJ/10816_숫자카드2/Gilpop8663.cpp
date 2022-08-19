@@ -24,7 +24,6 @@ int main(void)
     {
         int num;
         cin >> num;
-        // cout << upper_bound(arr, arr + n, num) << " " << lower_bound(arr, arr + n, num) << "\n";
         cout << upper_bound(arr, arr + n, num) - lower_bound(arr, arr + n, num) << " ";
     }
 }

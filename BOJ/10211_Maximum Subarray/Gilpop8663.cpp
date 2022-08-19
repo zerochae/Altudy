@@ -6,6 +6,8 @@ int t, n;
 int arr[1005];
 int d[1005];
 
+
+
 int main(void)
 {
     ios::sync_with_stdio(0);

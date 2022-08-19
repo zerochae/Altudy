@@ -8,6 +8,11 @@ int n;
 int board1[22][22]; // 보드를 저장할 변수
 int board2[22][22]; // 보드를 저장할 변수
 
+
+void shift_row(){
+    
+}
+
 void rotate() // 90도 회전하는 함수 4방향으로 기울이는 대신 판을 회전시킴
 {
     int tmp[22][22];
@@ -89,7 +94,7 @@ int main(void)
         {
             for (int j = 0; j < n; j++)
             {
-                mx = max(mx, board2[i][j]);
+                mx = max(mx, board2[i][j]); 
             }
         }
     }

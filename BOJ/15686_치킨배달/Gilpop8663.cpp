@@ -26,7 +26,7 @@ int main(void)
             cin >> board[i][j];
             if (board[i][j] == 1)
                 house.push_back({i, j});
-            if (board[i][j] == 2)
+            if (board[i][j] == 20)
                 chicken.push_back({i, j});
         }
     }
