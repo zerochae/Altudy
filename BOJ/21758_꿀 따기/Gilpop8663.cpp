@@ -5,7 +5,6 @@ int n;
 
 int arr[100005];
 int sum[100005];
-int ds[100005];
 
 int main(void)
 {
@@ -34,7 +33,7 @@ int main(void)
 
     for (int i = 2; i < n; i++)
     {
-        int cur = (sum[n] - sum[1] - arr[i]) + (sum[n - 1] - sum[i]);
+        int cur = (sum[n] - sum[1] - arr[i]) + (sum[n] - sum[i]);
         ans = max(ans, cur);
     }
 

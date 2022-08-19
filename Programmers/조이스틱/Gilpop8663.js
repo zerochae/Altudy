@@ -6,9 +6,6 @@ let name = "BBBBAA";
 function solution(name) {
   var answer = 0;
   let n = name.length;
-  let strArr = Array.from({ length: 26 }, (v = 65, i) => {
-    return String.fromCharCode(v + i);
-  });
   let index = 0;
   let move = n - 1;
   for (let i = 0; i < n; i++) {

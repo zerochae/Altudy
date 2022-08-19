@@ -51,3 +51,4 @@ function solution(numbers) {
 /* print output */
 console.log(solution(numbers));
 /* print output end */
+w

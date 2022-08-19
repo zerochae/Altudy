@@ -29,7 +29,7 @@ int main(void)
         int dir = dist[i].first;
         int ny = dist[i].second;
 
-        cout << meDir << " " << y << " " << dir << " " << ny << "\n";
+        // cout << meDir << " " << y << " " << dir << " " << ny << "\n";
 
         if (meDir == dir)
         {
