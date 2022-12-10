@@ -3,8 +3,46 @@ using namespace std;
 
 int n;
 
-string arr[22];
-string copy_arr[22];
+string str;
+int answer = -2e9;
+
+int calculate(int a, int b, char op)
+{
+    switch (op)
+    {
+    case '+':
+        a += b;
+        break;
+    case '-':
+        a -= b;
+        break;
+    case '*':
+        a *= b;
+        break;
+    }
+    return a;
+}
+
+void DFS(int idx, int cur)
+{
+    if (idx >= n)
+    {
+        answer = max(answer, cur);
+        return;
+    }
+
+    char op = idx == 0 ? '+' : str[idx - 1];
+
+    if (idx + 2 < n)
+    {
+        int bracket = calculate(str[idx] - '0', str[idx + 2] - '0', str[idx + 1]);
+        DFS(idx + 4, calculate(cur, bracket, op));
+    }
+
+    DFS(idx + 2, calculate(cur, str[idx] - '0', op));
+
+    return;
+}
 
 int main(void)
 {
@@ -13,49 +51,8 @@ int main(void)
 
     cin >> n;
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-        copy_arr[i] = arr[i];
-    }
+    cin >> str;
 
-    sort(copy_arr, copy_arr + n);
-
-    bool isInc = 1;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] != copy_arr[i])
-        {
-            isInc = 0;
-            break;
-        }
-    }
-
-    if (isInc == 1)
-    {
-        cout << "INCREASING";
-        return 0;
-    }
-
-    sort(copy_arr, copy_arr + n, greater<>());
-
-    bool isDec = 1;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] != copy_arr[i])
-        {
-            isDec = 0;
-            break;
-        }
-    }
-
-    if (isDec == 1)
-    {
-        cout << "DECREASING";
-    }
-    else
-    {
-        cout << "NEITHER";
-    }
+    DFS(0, 0);
+    cout << answer;
 }
