@@ -39,7 +39,61 @@ int findParent(int a, int b)
     return 0;
 }
 
-// 크루스칼 알고리즘
+// // 크루스칼 알고리즘
+// int main(void)
+// {
+//     ios::sync_with_stdio(0);
+//     cin.tie(0);
+
+//     cin >> n >> k;
+
+//     for (int i = 0; i < k; i++)
+//     {
+//         int A, B, C;
+//         cin >> A >> B >> C;
+
+//         arr.push_back({C, A, B});
+//     }
+
+//     for (int i = 1; i <= n; i++)
+//     {
+//         parent[i] = i;
+//     }
+
+//     sort(arr.begin(), arr.end());
+
+//     int cnt = 0;
+//     int ans = 0;
+
+//     for (int i = 0; i < k; i++)
+//     {
+//         int cost = get<0>(arr[i]);
+//         int A = get<1>(arr[i]);
+//         int B = get<2>(arr[i]);
+
+//         // cout << cost << " " << A << " " << B << "\n";
+
+//         if (findParent(A, B) == 0)
+//         {
+//             unionParent(A, B);
+//             cnt += 1;
+//             ans += cost;
+//         }
+
+//         if (cnt == n - 1)
+//             break;
+//     }
+
+//     cout << ans;
+// }
+
+vector<pair<int, int>> adj[10005]; // 비용 , 정점번호
+
+bool chk[10005];
+
+priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> pq; // 비용 , 정점 1 ,정점 2
+
+// 프림 알고리즘
 int main(void)
 {
     ios::sync_with_stdio(0);
@@ -52,36 +106,36 @@ int main(void)
         int A, B, C;
         cin >> A >> B >> C;
 
-        arr.push_back({C, A, B});
+        adj[A].push_back({C, B});
+        adj[B].push_back({C, A});
     }
 
-    for (int i = 1; i <= n; i++)
-    {
-        parent[i] = i;
-    }
-
-    sort(arr.begin(), arr.end());
-
-    int cnt = 0;
     int ans = 0;
+    int cnt = 0;
+    chk[1] = 1;
 
-    for (int i = 0; i < k; i++)
+    for (auto nxt : adj[1])
     {
-        int cost = get<0>(arr[i]);
-        int A = get<1>(arr[i]);
-        int B = get<2>(arr[i]);
+        pq.push({nxt.first, 1, nxt.second});
+    }
+    while (cnt < n - 1)
+    {
+        int cost, a, b;
+        tie(cost, a, b) = pq.top();
+        pq.pop();
+        if (chk[b] == 1)
+            continue;
+        ans += cost;
+        chk[b] = 1;
+        cnt += 1;
 
-        // cout << cost << " " << A << " " << B << "\n";
-
-        if (findParent(A, B) == 0)
+        for (auto nxt : adj[b])
         {
-            unionParent(A, B);
-            cnt += 1;
-            ans += cost;
+            if (!chk[nxt.second])
+            {
+                pq.push({nxt.first, b, nxt.second});
+            }
         }
-
-        if (cnt == n - 1)
-            break;
     }
 
     cout << ans;
